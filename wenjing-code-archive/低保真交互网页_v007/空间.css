@@ -1,0 +1,18 @@
+/* 空间关系使用同一展示面，日夜模式共用主题变量。 */
+.hero-visual,.camera-surface,.immersive>.placeholder{position:relative;isolation:isolate;transform-origin:0 0}
+.hero-visual{transition:transform 300ms var(--ease-out);transform:none}
+.lens-face{position:absolute;inset:14%;display:grid;place-items:center;pointer-events:none;color:var(--muted)}
+.lens-face:before{content:'';position:absolute;width:68%;aspect-ratio:1;border:1px solid var(--line-strong);border-radius:50%;justify-self:center;opacity:.65}
+.lens-face:after{content:'';position:absolute;inset:14% 32%;border-left:1px dashed var(--line);border-right:1px dashed var(--line)}
+.foreground-rail{position:absolute;pointer-events:none;top:4%;height:92%;width:2px;background:var(--line-strong)}
+.camera-surface{z-index:2}.camera-route .page-head,.camera-route .immersive,.camera-route .hero>div:first-child{animation:none}
+.corner{position:absolute;width:20px;height:20px;border:solid var(--ink);opacity:.4;pointer-events:none;transition:opacity 160ms ease}
+.c0{left:12px;top:12px;border-width:1px 0 0 1px}.c1{right:12px;top:12px;border-width:1px 1px 0 0}.c2{right:12px;bottom:12px;border-width:0 1px 1px 0}.c3{left:12px;bottom:12px;border-width:0 0 1px 1px}
+.immersive .corner{opacity:.7}.hero:has(#bloom-preview:is(:hover,:focus-visible)) .corner{opacity:1}
+.match-column [aria-pressed=true]{outline:2px solid var(--ink);outline-offset:3px}
+.awaiting-name [data-pair]:before,.awaiting-name [data-picture].active:after{content:'';position:absolute;top:50%;width:8px;height:8px;border:1px solid var(--ink);background:var(--surface);border-radius:50%}
+.awaiting-name [data-pair]:before{left:-5px}.awaiting-name [data-picture].active:after{right:-5px}
+.wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;color:var(--ink)}.wires path{stroke:currentColor;stroke-width:2;fill:none;stroke-dasharray:1}.wires circle{fill:currentColor}
+.flying-label{position:fixed;z-index:12;pointer-events:none;text-align:center;background:var(--surface);color:var(--ink);border:1px solid var(--line-strong);padding:8px 12px;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(prefers-reduced-motion:reduce){.hero-visual{transform:none!important}}
+html[data-input=keyboard] .hero-visual{transform:none!important}
